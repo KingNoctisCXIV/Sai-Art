@@ -9,7 +9,7 @@ info:
     registering a new Action in the GPT Builder. Replace the `servers` URL
     with the actual host where your bridge service will run.
 servers:
-  - url: https://your-bridge.example.com
+  - url: https://sai-art.onrender.com
 paths:
   /designs:
     post:
