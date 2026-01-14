@@ -78,8 +78,15 @@ def export_design(design_id):
         "file_format": export_format
     }
     result = canva_request("POST", f"/designs/{design_id}/exports", json=payload)
+    export_url = result.get("url")
+    if not export_url:
+        urls = result.get("urls")
+        if isinstance(urls, list) and urls:
+            export_url = urls[0]
+    if not export_url:
+        export_url = result.get("export_url")
     return jsonify({
-        "export_url": result.get("url"),
+        "export_url": export_url,
     })
 
 if __name__ == "__main__":
